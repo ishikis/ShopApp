@@ -1,4 +1,4 @@
-module.export = function () {
+module.exports = function () {
     return {
         product: [
             { id: 1, name: "Samsung s5", price: 1000, imageUrl: "1.jpeg", decription: "idare eder" },
