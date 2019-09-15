@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
     <div class="bg-primary m-5 p-5">
       Shop Application
     </div>
+
+    <shop></shop>
   `
 })
 export class AppComponent { 
