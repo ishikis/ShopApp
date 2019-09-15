@@ -3,6 +3,7 @@ import { ProductRepository } from '../model/product.repository';
 import { CategoryRepository } from '../model/category.repository';
 import { Product } from '../model/product.model';
 import { Category } from '../model/category.model';
+import { Cart } from '../model/cart.model';
 
 @Component({
     selector: 'shop',
@@ -18,7 +19,8 @@ export class ShopComponent {
     public selectedPage: number = 1;
 
     constructor(private productRepository: ProductRepository
-        , private categoryRepository: CategoryRepository) { }
+        , private categoryRepository: CategoryRepository,
+        private cart: Cart) { }
 
 
     get products(): Product[] {
@@ -32,7 +34,7 @@ export class ShopComponent {
     get pageNumbers(): number[] {
         return Array(
             Math.ceil(this.productRepository
-            .getProducts(this.selectedCategory).length / this.productPerPage))
+                .getProducts(this.selectedCategory).length / this.productPerPage))
             .fill(0)
             .map((a, i) => i + 1)
     }
@@ -49,6 +51,11 @@ export class ShopComponent {
 
     changeCategory(newCategory?: Category) {
         this.selectedCategory = newCategory;
+    }
+
+    addProductToCard(product: Product) {
+
+        this.cart.addItem(product);
     }
 
 }

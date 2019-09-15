@@ -2,7 +2,7 @@ import { Product } from "./product.model";
 import { Injectable } from '@angular/core';
 
 @Injectable()
-class Cart {
+export class Cart {
     public items: CartItem[] = [];
     public itemCount: number = 0;
     public total: number = 0;
