@@ -41,6 +41,16 @@
                 </ng-container>
 
             </div>
+            <div class="row mt-3">
+                <div class="col">
+                    <div class="btn-group">
+                        <button *ngFor="let page of pageNumbers" (click)="changePage(page)"
+                          [class.active]="page==selectedPage"  class="btn btn-outline-primary">
+                            {{page}}
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
