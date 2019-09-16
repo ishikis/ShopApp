@@ -17,7 +17,7 @@ import { CheckoutComponent } from './shop/checkout/checkout.component';
     ShopModule,
     RouterModule.forRoot([
       { path: 'shop', component: ShopComponent },
-      { path: 'card', component: CartDetailComponent },
+      { path: 'cart', component: CartDetailComponent },
       { path: 'checkout', component: CheckoutComponent },
       { path: '**', redirectTo: "/shop" } 
     ])
