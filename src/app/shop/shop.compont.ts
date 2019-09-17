@@ -15,20 +15,19 @@ export class ShopComponent {
     public selectedCategory: Category = null;
     public productPerPage: number = 3;
     public selectedPage: number = 1;
+    public selectedProduct: Product[] = [];
 
     constructor(
-        private productRepository: ProductRepository,
-        private categoryRepository: CategoryRepository,
-        private cart: Cart,
-        private router: Router
+        private productRepository: ProductRepository
     ) { }
-
 
     get products(): Product[] {
         let index = (this.selectedPage - 1) * this.productPerPage;
         //sayfalama  için slice metodunu kullanıyoruz 
-        return this.productRepository
-            .getProducts(this.selectedCategory)
+        this.selectedProduct = this.productRepository
+            .getProducts(this.selectedCategory);
+
+        return this.selectedProduct
             .slice(index, index + this.productPerPage);
     }
 
@@ -44,20 +43,16 @@ export class ShopComponent {
         this.selectedPage = p;
     }
 
+    changePageSize(p: number) {
+        this.productPerPage = p;
+        this.changePage(1);
+    }
 
-    get categories(): Category[] {
-        return this.categoryRepository.getCategories()
+    //geriye parametre gönderme işlemi için
+    getCategory(category: Category) {
+        this.selectedCategory = category;
     }
 
 
-    changeCategory(newCategory?: Category) {
-        this.selectedCategory = newCategory;
-    }
-
-    addProductToCard(product: Product) {
-
-        this.cart.addItem(product);
-        this.router.navigateByUrl("/cart");
-    }
 
 }
