@@ -19,7 +19,8 @@ import { CheckoutComponent } from './shop/checkout/checkout.component';
       { path: 'shop', component: ShopComponent },
       { path: 'cart', component: CartDetailComponent },
       { path: 'checkout', component: CheckoutComponent },
-      { path: '**', redirectTo: "/shop" } 
+      { path: 'admin', loadChildren: './admin/admin.module#AdminModule' },
+      { path: '**', redirectTo: "/shop" }
     ])
   ],
   providers: [],
