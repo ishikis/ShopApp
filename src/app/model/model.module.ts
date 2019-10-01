@@ -6,6 +6,7 @@ import { CategoryRepository } from './category.repository';
 import { Cart } from './cart.model';
 import { Order } from './order.model';
 import { OrderRepository } from './order.repository';
+import { AuthService } from './auth.service';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { OrderRepository } from './order.repository';
         CategoryRepository,
         Cart,
         Order,
-        OrderRepository
+        OrderRepository,
+        AuthService
     ]
 })
 
