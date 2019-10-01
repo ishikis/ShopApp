@@ -24,7 +24,6 @@ export class AuthComponent implements OnInit {
     if (form.valid) {
       this.authService.authenticate(this.username, this.password)
         .subscribe(response => {
-          debugger;
           if (response) {
             this.router.navigateByUrl('/admin/main');
           }

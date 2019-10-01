@@ -17,7 +17,7 @@ export class ProductRepository implements OnInit {
     ngOnInit() { }
 
     getProduct(id: number): Product {
-        return this.products.find(i => i.id === id);
+        return this.products.find(i => i.id == id);
     }
 
     getProducts(categoy: Category = null): Product[] {
